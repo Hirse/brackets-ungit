@@ -2,6 +2,10 @@
 [Brackets][Brackets] Extension that adds [Ungit][Ungit] directly into Brackets.  
 Runs Ungit as a child process of the Brackets node so you can access it from Brackets or any Browser.
 
+## Screenshots
+![Brackets Ungit Viewer][Brackets Ungit Screenshot]  
+*Ungit in Brackets*
+
 ## Installation
 ### Dependencies
 Brackets Ungit uses [Ungit][Ungit] which in turn requires [Git][Git] to be installed on your system.
