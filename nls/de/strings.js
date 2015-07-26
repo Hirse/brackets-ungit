@@ -1,6 +1,7 @@
 define({
-    TOOLBAR_ICON_TOOLTIP: "Ungit Ansicht umschalten",
-    CLOSE_VIEWER_TOOLTIP: "Ungit Ansicht schließen",
-    OPEN_UNGIT_CMD: "Ungit Ansicht öffnen",
-    KILL_UNGIT_CMD: "Ungit beenden"
+TOOLBAR_ICON_TOOLTIP:                "Ungit Ansicht umschalten",
+    CLOSE_VIEWER_TOOLTIP:            "Ungit Ansicht schließen",
+    TOOLBAR_ICON_TOOLTIP_INSTALLING: "Installiere Ungit",
+    OPEN_UNGIT_CMD:                  "Ungit Ansicht öffnen",
+    KILL_UNGIT_CMD:                  "Ungit beenden"
 });

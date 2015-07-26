@@ -6,8 +6,12 @@
     background-position: 0 -24px;
 }
 
-#hirse-ungit-toolbar-icon.error {
+#hirse-ungit-toolbar-icon.warning {
     background-position: 0 -48px;
+}
+
+#hirse-ungit-toolbar-icon.error {
+    background-position: 0 -72px;
 }
 
 
