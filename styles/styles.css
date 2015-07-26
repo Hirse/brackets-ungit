@@ -1,0 +1,48 @@
+#hirse-ungit-toolbar-icon {
+    background-image: url(icons/icon.svg);
+}
+
+#hirse-ungit-toolbar-icon.enabled {
+    background-position: 0 -24px;
+}
+
+#hirse-ungit-toolbar-icon.error {
+    background-position: 0 -48px;
+}
+
+
+#hirse-ungit-viewer {
+    background-color: #252833;
+    display: none;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+}
+
+#hirse-ungit-close {
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 4px;
+    color: #d8d8d8;
+    font-size: 23px;
+    padding: 13px 12px 12px;
+    position: absolute;
+    right: 10px;
+    top: 13px;
+}
+
+#hirse-ungit-close:focus {
+    outline: none;
+}
+
+#hirse-ungit-close:active {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+#hirse-ungit-viewer iframe {
+    border: none;
+    height: 100%;
+    width: 100%;
+}
