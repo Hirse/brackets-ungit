@@ -14,6 +14,12 @@
         child = childProcess.exec("npm install", {
             cwd: __dirname
         });
+        child.stdout.on("data", function (data) {
+            _domainManager.emitEvent(DOMAIN_NAME, "out", data);
+        });
+        child.stderr.on("data", function (data) {
+            _domainManager.emitEvent(DOMAIN_NAME, "out", data);
+        });
         child.on("exit", function (code) {
             _domainManager.emitEvent(DOMAIN_NAME, "installComplete", code);
         });
@@ -33,6 +39,16 @@
             install, // command handler function
             false, // this command is synchronous in Node
             "Calls npm install"
+        );
+
+        domainManager.registerEvent(
+            DOMAIN_NAME, // domain name
+            "out", // event name
+            [{
+                name: "mesage",
+                type: "string",
+                description: "Message body"
+            }]
         );
 
         domainManager.registerEvent(

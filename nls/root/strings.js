@@ -3,5 +3,7 @@ define({
     CLOSE_VIEWER_TOOLTIP:            "Close Ungit View",
     TOOLBAR_ICON_TOOLTIP_INSTALLING: "Installing Ungit",
     OPEN_UNGIT_CMD:                  "Open Ungit View",
-    KILL_UNGIT_CMD:                  "Stop Ungit"
+    KILL_UNGIT_CMD:                  "Stop Ungit",
+    INSTALL_LOG:                     "npm install Log",
+    INSTALL_LOG_HIDE:                "Hide"
 });

@@ -10,6 +10,7 @@ define(function (require, exports, module) {
     var ExtensionUtils  = brackets.getModule("utils/ExtensionUtils");
     var NodeDomain      = brackets.getModule("utils/NodeDomain");
     var MainViewManager = brackets.getModule("view/MainViewManager");
+    var Dialogs         = brackets.getModule("widgets/Dialogs");
 
     var ungitViewerTemplate = require("text!templates/ungit.html");
     var Strings             = require("strings");
@@ -24,10 +25,33 @@ define(function (require, exports, module) {
 
     var nodeDomain = new NodeDomain("hirseUngit", ExtensionUtils.getModulePath(module, "domain"));
     var npmDomain = new NodeDomain("hirseNpm", ExtensionUtils.getModulePath(module, "npmDomain"));
+    var Dialog;
+    var installLog = "";
     var currentPath;
     var status = STATUS_INITIAL;
     var $viewer;
     var $toolbarButton;
+
+    function installUngit() {
+        status = STATUS_INSTALLING;
+        $toolbarButton.attr("title", Strings.TOOLBAR_ICON_TOOLTIP_INSTALLING);
+        npmDomain.exec("install");
+        npmDomain.on("out", function (event, message) {
+            installLog += message;
+            if (Dialog) {
+                $(Dialog.getElement()).find(".dialog-message pre").text(installLog);
+            }
+        });
+        npmDomain.on("installComplete", function (event, code) {
+            if (code === 0) {
+                $toolbarButton.removeClass("warning");
+                $toolbarButton.attr("title", Strings.TOOLBAR_ICON_TOOLTIP);
+                status = STATUS_INSTALLED;
+            } else {
+                $toolbarButton.addClass("error");
+            }
+        });
+    }
 
     function startUngit() {
         nodeDomain.exec("start");
@@ -103,6 +127,16 @@ define(function (require, exports, module) {
                 } else {
                     closeUngit();
                 }
+            } else {
+                var dialogBody = "<div class=\"spinner inline large spin\"></div>";
+                dialogBody += "<pre>" + installLog + "</pre>";
+                Dialog = Dialogs.showModalDialog("hirse-ungit-progress", Strings.INSTALL_LOG, dialogBody, [{
+                    className: "primary",
+                    text: Strings.INSTALL_LOG_HIDE
+                }]);
+                Dialog.done(function () {
+                    Dialog = null;
+                });
             }
         })
         .appendTo($("#main-toolbar .buttons"));
@@ -111,18 +145,7 @@ define(function (require, exports, module) {
         var nodeModules = FileSystem.getDirectoryForPath(ExtensionUtils.getModulePath(module, "node_modules"));
         nodeModules.exists(function (error, exists) {
             if (!exists) {
-                npmDomain.exec("install");
-                status = STATUS_INSTALLING;
-                $toolbarButton.attr("title", Strings.TOOLBAR_ICON_TOOLTIP_INSTALLING);
-                npmDomain.on("installComplete", function (event, code) {
-                    if (code === 0) {
-                        $toolbarButton.removeClass("warning");
-                        $toolbarButton.attr("title", Strings.TOOLBAR_ICON_TOOLTIP);
-                        status = STATUS_INSTALLED;
-                    } else {
-                        $toolbarButton.addClass("error");
-                    }
-                });
+                installUngit();
             } else {
                 $toolbarButton.removeClass("warning");
                 $toolbarButton.attr("title", Strings.TOOLBAR_ICON_TOOLTIP);

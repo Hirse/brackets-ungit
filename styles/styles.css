@@ -15,6 +15,11 @@
 }
 
 
+.hirse-ungit-progress .spinner {
+    left: calc(50% - 36px);
+}
+
+
 #hirse-ungit-viewer {
     background-color: #252833;
     display: none;
