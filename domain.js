@@ -3,7 +3,7 @@
 (function () {
     "use strict";
 
-    var DOMAIN_NAME = "hirse.ungit";
+    var DOMAIN_NAME = "hirseUngit";
 
     var childProcess = require("child_process");
 
@@ -11,17 +11,17 @@
     var child;
 
     function start() {
-        child = childProcess.exec("node " + __dirname + "/node_modules/ungit/bin/ungit --no-b", function (stdout, stderr, error) {
-            console.log(arguments);
-//            if (error) {
-//                console.log(error);
-//            }
+        child = childProcess.exec("node node_modules/ungit/bin/ungit --no-b", {
+            cwd: __dirname
         });
         child.stdout.on("data", function (data) {
             _domainManager.emitEvent(DOMAIN_NAME, "stdout", data);
         });
         child.stderr.on("data", function (data) {
             _domainManager.emitEvent(DOMAIN_NAME, "stderr", data);
+        });
+        child.on("error", function (code) {
+            _domainManager.emitEvent(DOMAIN_NAME, "error", code);
         });
         child.on("close", function (code) {
             child = null;
@@ -51,7 +51,7 @@
             DOMAIN_NAME, // domain name
             "start", // command name
             start, // command handler function
-            true, // this command is synchronous in Node
+            false, // this command is synchronous in Node
             "Starts the ungit process"
         );
         domainManager.registerCommand(
@@ -79,6 +79,16 @@
                 name: "mesage",
                 type: "string",
                 description: "message body"
+            }]
+        );
+
+        domainManager.registerEvent(
+            DOMAIN_NAME, // domain name
+            "error", // event name
+            [{
+                name: "code",
+                type: "string",
+                description: "Exit code"
             }]
         );
 

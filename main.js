@@ -22,7 +22,7 @@ define(function (require, exports, module) {
     var STATUS_OPEN       = 5;
     /* beautify preserve:end */
 
-    var nodeDomain = new NodeDomain("hirse.ungit", ExtensionUtils.getModulePath(module, "domain"));
+    var nodeDomain = new NodeDomain("hirseUngit", ExtensionUtils.getModulePath(module, "domain"));
     var npmDomain = new NodeDomain("hirseNpm", ExtensionUtils.getModulePath(module, "npmDomain"));
     var currentPath;
     var status = STATUS_INITIAL;
@@ -31,7 +31,7 @@ define(function (require, exports, module) {
 
     function startUngit() {
         nodeDomain.exec("start");
-        nodeDomain.on("stderr", function () {
+        nodeDomain.on("error", function () {
             $toolbarButton.addClass("error");
             status = STATUS_INSTALLED;
         });
@@ -43,8 +43,12 @@ define(function (require, exports, module) {
             closeUngit();
         }
         nodeDomain.exec("kill");
-        $toolbarButton.removeClass("enabled");
-        status = STATUS_INSTALLED;
+        nodeDomain.on("close", function () {
+            $toolbarButton.removeClass("enabled");
+            status = STATUS_INSTALLED;
+            $viewer.find("iframe").attr("src", "");
+            currentPath = "";
+        });
     }
 
     function openUngit() {
