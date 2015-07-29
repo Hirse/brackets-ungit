@@ -2,13 +2,21 @@
 [Brackets][Brackets] Extension that adds [Ungit][Ungit] directly into Brackets.  
 Runs Ungit as a child process of the Brackets node so you can access it from Brackets or any Browser.
 
+This is necessarily an alternative to [Brackets-Git][Brackets Git], you can use both in parallel without conflicts.
+In fact, I have both installed and use either, depending on the task and context.
+
 ## Screenshots
-![Brackets Ungit Viewer][Brackets Ungit Screenshot]  
+![Brackets Ungit Viewer][Brackets Ungit Viewer Screenshot]  
 *Ungit in Brackets*
+
+![Brackets Ungit Dependency Installation][Brackets Ungit Install Screenshot]  
+*Dependency Installation*
 
 ## Installation
 ### Dependencies
-Brackets Ungit uses [Ungit][Ungit] which in turn requires [Git][Git] to be installed on your system.
+Brackets Ungit uses [Ungit][Ungit] which in turn requires [Git][Git].  
+Git has to be installed on your system before you use the extension.  
+Ungit will be installed as `node_module` on the first run of this extension.
 
 ### Latest Release
 To install the latest _release_ of this extension use the built-in Brackets [Extension Manager][Brackets Extension Manager] which downloads the extension from the [Brackets Extension Registry][Brackets Extension Registry].
@@ -18,10 +26,9 @@ To install the latest _commit_ of this extension use the built-in Brackets [Exte
 ```
 https://github.com/Hirse/brackets-ungit/archive/master.zip
 ```
-Brackets Ungit uses a local installation of the [ungit npm package][Ungit npm]. The version obtained from the Brackets Extension Manager includes this already, however if you install from GitHub directly you have to run `npm install` in the root directory of this extension.
 
 ### Brackets npm Registry
-The latest _release_ of this extension is also available on the [Brackets npm Registry][Brackets npm Registry] without the bundled Ungit module.
+The latest _release_ of this extension is also available on the [Brackets npm Registry][Brackets npm Registry].
 
 ## Usage
 Click the Ungit Toolbar Button to start Ungit and open the viewer for the current project. Ungit will keep running until Brackets is closed. Go to `http://localhost:8448` to view the same Ungit instance in your Browser of choice.
@@ -33,9 +40,10 @@ Brackets Ungit is licensed under the [MIT license][MIT]. [Ungit][Ungit] itself i
 [Brackets]: http://brackets.io
 [Brackets Extension Manager]: https://github.com/adobe/brackets/wiki/Brackets-Extensions
 [Brackets Extension Registry]: https://brackets-registry.aboutweb.com
+[Brackets Git]: https://github.com/zaggino/brackets-git
 [Brackets npm Registry]: https://github.com/zaggino/brackets-npm-registry
-[Brackets Ungit Screenshot]: https://raw.githubusercontent.com/Hirse/brackets-ungit/master/screenshots/viewer.png
+[Brackets Ungit Viewer Screenshot]: https://raw.githubusercontent.com/Hirse/brackets-ungit/master/screenshots/viewer.png
+[Brackets Ungit Install Screenshot]: https://raw.githubusercontent.com/Hirse/brackets-ungit/master/screenshots/install.png
 [Git]: https://git-scm.com
 [MIT]: http://opensource.org/licenses/MIT
 [Ungit]: https://github.com/FredrikNoren/ungit
-[Ungit npm]: https://www.npmjs.com/package/ungit
