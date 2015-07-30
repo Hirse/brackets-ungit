@@ -30,6 +30,7 @@
         "require": false,
         "define": false,
         "brackets": false,
-        "Mustache": false
+        "Mustache": false,
+        "Promise": false
     }
 }

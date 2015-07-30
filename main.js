@@ -34,6 +34,8 @@ define(function (require, exports, module) {
 
     function installUngit() {
         status = STATUS_INSTALLING;
+        $toolbarButton.removeClass();
+        $toolbarButton.addClass("installing");
         $toolbarButton.attr("title", Strings.TOOLBAR_ICON_TOOLTIP_INSTALLING);
         npmDomain.exec("install");
         npmDomain.on("out", function (event, message) {
@@ -44,7 +46,7 @@ define(function (require, exports, module) {
         });
         npmDomain.on("installComplete", function (event, code) {
             if (code === 0) {
-                $toolbarButton.removeClass("warning");
+                $toolbarButton.removeClass();
                 $toolbarButton.attr("title", Strings.TOOLBAR_ICON_TOOLTIP);
                 status = STATUS_INSTALLED;
             } else {
@@ -54,12 +56,27 @@ define(function (require, exports, module) {
     }
 
     function startUngit() {
-        nodeDomain.exec("start");
-        nodeDomain.on("error", function () {
-            $toolbarButton.addClass("error");
-            status = STATUS_INSTALLED;
+        if (status === STATUS_RUNNING) {
+            return Promise.resolve();
+        }
+        return new Promise(function (resolve, reject) {
+            $toolbarButton.addClass("starting");
+            nodeDomain.exec("start");
+            nodeDomain.on("error", function () {
+                $toolbarButton.removeClass();
+                $toolbarButton.addClass("error");
+                status = STATUS_INSTALLED;
+                reject();
+            });
+            nodeDomain.on("out", function (event, message) {
+                if (message.indexOf("## Ungit started ##") !== -1 || message.indexOf("Ungit server already running") !== -1) {
+                    $toolbarButton.removeClass();
+                    $toolbarButton.addClass("enabled");
+                    status = STATUS_RUNNING;
+                    resolve();
+                }
+            });
         });
-        status = STATUS_RUNNING;
     }
 
     function killUngit() {
@@ -68,7 +85,7 @@ define(function (require, exports, module) {
         }
         nodeDomain.exec("kill");
         nodeDomain.on("close", function () {
-            $toolbarButton.removeClass("enabled");
+            $toolbarButton.removeClass();
             status = STATUS_INSTALLED;
             $viewer.find("iframe").attr("src", "");
             currentPath = "";
@@ -76,16 +93,15 @@ define(function (require, exports, module) {
     }
 
     function openUngit() {
-        if (status === STATUS_INSTALLED) {
-            startUngit();
-        }
-        var projectPath = ProjectManager.getProjectRoot().fullPath;
-        if (currentPath !== projectPath) {
-            currentPath = projectPath;
-            $viewer.find("iframe").attr("src", BASE_URL + currentPath);
-        }
-        $viewer.fadeIn("fast");
-        status = STATUS_OPEN;
+        startUngit().then(function () {
+            var projectPath = ProjectManager.getProjectRoot().fullPath;
+            if (currentPath !== projectPath) {
+                currentPath = projectPath;
+                $viewer.find("iframe").attr("src", BASE_URL + currentPath);
+            }
+            $viewer.fadeIn("fast");
+            status = STATUS_OPEN;
+        });
     }
 
     function closeUngit() {
@@ -122,7 +138,6 @@ define(function (require, exports, module) {
         .on("click", function () {
             if (status >= STATUS_INSTALLED) {
                 if (status !== STATUS_OPEN) {
-                    $(this).addClass("enabled");
                     openUngit();
                 } else {
                     closeUngit();
@@ -147,7 +162,7 @@ define(function (require, exports, module) {
             if (!exists) {
                 installUngit();
             } else {
-                $toolbarButton.removeClass("warning");
+                $toolbarButton.removeClass();
                 $toolbarButton.attr("title", Strings.TOOLBAR_ICON_TOOLTIP);
                 status = STATUS_INSTALLED;
             }

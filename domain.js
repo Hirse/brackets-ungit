@@ -15,7 +15,7 @@
             cwd: __dirname
         });
         child.stdout.on("data", function (data) {
-            _domainManager.emitEvent(DOMAIN_NAME, "stdout", data);
+            _domainManager.emitEvent(DOMAIN_NAME, "out", data);
         });
         child.stderr.on("data", function (data) {
             _domainManager.emitEvent(DOMAIN_NAME, "stderr", data);
@@ -64,11 +64,11 @@
 
         domainManager.registerEvent(
             DOMAIN_NAME, // domain name
-            "stdout", // event name
+            "out", // event name
             [{
                 name: "mesage",
                 type: "string",
-                description: "message body"
+                description: "Message body"
             }]
         );
 

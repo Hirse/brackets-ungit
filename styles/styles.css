@@ -14,6 +14,14 @@
     background-position: 0 -72px;
 }
 
+#hirse-ungit-toolbar-icon.installing {
+    background-position: 0 -96px;
+}
+
+#hirse-ungit-toolbar-icon.starting {
+    background-position: 0 -120px;
+}
+
 
 .hirse-ungit-progress .spinner {
     left: calc(50% - 36px);
