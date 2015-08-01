@@ -5,6 +5,12 @@ Runs Ungit as a child process of the Brackets node so you can access it from Bra
 This is necessarily an alternative to [Brackets-Git][Brackets Git], you can use both in parallel without conflicts.
 In fact, I have both installed and use either, depending on the task and context.
 
+## Dependencies
+Brackets Ungit uses [Ungit][Ungit] which in turn requires [Git][Git].
+* __Git__ has to be installed on your system before you use the extension.
+* __Node.js__ and __npm__ have to be installed and globally available on your system to install and run Ungit.
+* __Ungit__ will be installed as `node_module` on the first run of this extension.
+
 ## Screenshots
 ![Brackets Ungit Viewer][Brackets Ungit Viewer Screenshot]  
 *Ungit in Brackets*
@@ -13,11 +19,6 @@ In fact, I have both installed and use either, depending on the task and context
 *Dependency Installation*
 
 ## Installation
-### Dependencies
-Brackets Ungit uses [Ungit][Ungit] which in turn requires [Git][Git].  
-Git has to be installed on your system before you use the extension.  
-Ungit will be installed as `node_module` on the first run of this extension.
-
 ### Latest Release
 To install the latest _release_ of this extension use the built-in Brackets [Extension Manager][Brackets Extension Manager] which downloads the extension from the [Brackets Extension Registry][Brackets Extension Registry].
 

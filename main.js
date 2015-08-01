@@ -45,8 +45,8 @@ define(function (require, exports, module) {
             }
         });
         npmDomain.on("installComplete", function (event, code) {
+            $toolbarButton.removeClass();
             if (code === 0) {
-                $toolbarButton.removeClass();
                 $toolbarButton.attr("title", Strings.TOOLBAR_ICON_TOOLTIP);
                 status = STATUS_INSTALLED;
             } else {
