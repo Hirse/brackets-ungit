@@ -10,12 +10,13 @@ define(function (require, exports, module) {
     var ExtensionUtils  = brackets.getModule("utils/ExtensionUtils");
     var NodeDomain      = brackets.getModule("utils/NodeDomain");
     var MainViewManager = brackets.getModule("view/MainViewManager");
-    var Dialogs         = brackets.getModule("widgets/Dialogs");
 
-    var ungitViewerTemplate = require("text!templates/ungit.html");
+    var Dialog              = require("src/Dialog");
     var Strings             = require("strings");
+    var ungitViewerTemplate = require("text!templates/ungit.html");
 
     var BASE_URL          = "http://localhost:8448/#/repository?path=";
+    var STATUS_ERROR      = 0;
     var STATUS_INITIAL    = 1;
     var STATUS_INSTALLING = 2;
     var STATUS_INSTALLED  = 3;
@@ -25,8 +26,6 @@ define(function (require, exports, module) {
 
     var nodeDomain = new NodeDomain("hirseUngit", ExtensionUtils.getModulePath(module, "domain"));
     var npmDomain = new NodeDomain("hirseNpm", ExtensionUtils.getModulePath(module, "npmDomain"));
-    var Dialog;
-    var installLog = "";
     var currentPath;
     var status = STATUS_INITIAL;
     var $viewer;
@@ -39,18 +38,18 @@ define(function (require, exports, module) {
         $toolbarButton.attr("title", Strings.TOOLBAR_ICON_TOOLTIP_INSTALLING);
         npmDomain.exec("install");
         npmDomain.on("out", function (event, message) {
-            installLog += message;
-            if (Dialog) {
-                $(Dialog.getElement()).find(".dialog-message pre").text(installLog);
-            }
+            Dialog.appendLog(message);
         });
         npmDomain.on("installComplete", function (event, code) {
             $toolbarButton.removeClass();
             if (code === 0) {
+                Dialog.openInstallationCompleteDialog();
                 $toolbarButton.attr("title", Strings.TOOLBAR_ICON_TOOLTIP);
                 status = STATUS_INSTALLED;
             } else {
+                Dialog.openInstallationErrorDialog();
                 $toolbarButton.addClass("error");
+                status = STATUS_ERROR;
             }
         });
     }
@@ -136,22 +135,16 @@ define(function (require, exports, module) {
         .addClass("warning")
         .attr("href", "#")
         .on("click", function () {
-            if (status >= STATUS_INSTALLED) {
+            if (status === STATUS_ERROR) {
+                Dialog.openInstallationErrorDialog();
+            } else if (status === STATUS_INSTALLING) {
+                Dialog.openInstallDialog();
+            } else if (status >= STATUS_INSTALLED) {
                 if (status !== STATUS_OPEN) {
                     openUngit();
                 } else {
                     closeUngit();
                 }
-            } else {
-                var dialogBody = "<div class=\"spinner inline large spin\"></div>";
-                dialogBody += "<pre>" + installLog + "</pre>";
-                Dialog = Dialogs.showModalDialog("hirse-ungit-progress", Strings.INSTALL_LOG, dialogBody, [{
-                    className: "primary",
-                    text: Strings.INSTALL_LOG_HIDE
-                }]);
-                Dialog.done(function () {
-                    Dialog = null;
-                });
             }
         })
         .appendTo($("#main-toolbar .buttons"));
