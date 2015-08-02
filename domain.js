@@ -11,14 +11,15 @@
     var child;
 
     function start() {
-        child = childProcess.exec("node node_modules/ungit/bin/ungit --no-b", {
-            cwd: __dirname
+        child = childProcess.fork("node_modules/ungit/bin/ungit", ["--no-b"], {
+            cwd: __dirname,
+            silent: true
         });
-        child.stdout.on("data", function (data) {
-            _domainManager.emitEvent(DOMAIN_NAME, "out", data);
+        child.stdout.on("data", function (buffer) {
+            _domainManager.emitEvent(DOMAIN_NAME, "out", buffer.toString());
         });
-        child.stderr.on("data", function (data) {
-            _domainManager.emitEvent(DOMAIN_NAME, "stderr", data);
+        child.stderr.on("data", function (buffer) {
+            _domainManager.emitEvent(DOMAIN_NAME, "stderr", buffer.toString());
         });
         child.on("error", function (code) {
             _domainManager.emitEvent(DOMAIN_NAME, "error", code);
