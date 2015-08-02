@@ -1,10 +1,10 @@
 {
     "name": "hirse.ungit",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "title": "Brackets Ungit",
-    "description": "Run and view Ungit in Brackets. Ungit is a \"Clean and intuitive UI that makes it easy to understand git.\" Requires Git to be installed, works together with Brackets-Git.",
+    "description": "Run and view Ungit in Brackets. Ungit is a \"Clean and intuitive UI that makes it easy to understand git.\" Requires Git and npm to be installed, works together with Brackets-Git.",
     "engines": {
-        "brackets": ">=1.3.0"
+        "brackets": ">=1.4.0"
     },
     "homepage": "https://github.com/Hirse/brackets-ungit",
     "repository": "Hirse/brackets-ungit",
@@ -15,7 +15,7 @@
     "i18n": ["en", "de"],
     "package-i18n": {
         "de": {
-            "description": "Ungit direkt in Brackets. Ungit ist eine \"saubere und intuitive Oberfläche, die es einfach macht, Git zu verstehen.\" Benötigt eine Git Installation. Funktioniert auch parallel zu Brackets-Git."
+            "description": "Ungit direkt in Brackets. Ungit ist eine \"saubere und intuitive Oberfläche, die es einfach macht, Git zu verstehen.\" Benötigt eine Git und npm Installation. Funktioniert auch parallel zu Brackets-Git."
         }
     },
     "dependencies": {
