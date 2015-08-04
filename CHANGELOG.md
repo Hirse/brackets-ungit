@@ -3,9 +3,9 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
-## Unreleased
+## 0.3.1 - 2015-08-04
 ### Fixed
-- Added Promise Polyfill for Linux Chrome
+- Added Promise Polyfill for Linux Chrome (see [#4](https://github.com/Hirse/brackets-ungit/issues/4))
 
 
 ## 0.3.0 - 2015-08-03
