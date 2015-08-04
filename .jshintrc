@@ -31,6 +31,6 @@
         "define": false,
         "brackets": false,
         "Mustache": false,
-        "Promise": false
+        "Promise": true
     }
 }

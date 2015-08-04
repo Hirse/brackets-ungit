@@ -14,6 +14,9 @@ define(function (require, exports, module) {
     var Dialog              = require("src/Dialog");
     var Strings             = require("strings");
     var ungitViewerTemplate = require("text!templates/ungit.html");
+    if (typeof Promise !== "function") {
+        Promise         = require("src/Promise");
+    }
 
     var BASE_URL          = "http://localhost:8448/#/repository?path=";
     var STATUS_ERROR      = 0;

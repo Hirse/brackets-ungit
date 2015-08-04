@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
+## Unreleased
+### Fixed
+- Added Promise Polyfill for Linux Chrome
+
+
 ## 0.3.0 - 2015-08-03
 ### Added
 - More Dialogs to show installation status
