@@ -4,6 +4,7 @@
     "use strict";
 
     var DOMAIN_NAME = "hirseUngit";
+    var isWin = /^win/.test(process.platform);
 
     var childProcess = require("child_process");
 
@@ -11,7 +12,7 @@
     var child;
 
     function start() {
-        child = childProcess.fork("node_modules/ungit/bin/ungit", ["--no-b"], {
+        child = childProcess.fork("node_modules/ungit/bin/ungit", ["--no-b", "--maxNAutoRestartOnCrash=0"], {
             cwd: __dirname,
             silent: true
         });
@@ -32,7 +33,7 @@
 
     function kill() {
         if (child) {
-            if (/^win/.test(process.platform)) {
+            if (isWin) {
                 childProcess.spawn("taskkill", ["/pid", child.pid, "/t", "/f"]);
             } else {
                 child.kill();
