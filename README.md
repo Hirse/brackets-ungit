@@ -2,7 +2,7 @@
 [Brackets][Brackets] Extension that adds [Ungit][Ungit] directly into Brackets.  
 Runs Ungit as a child process of the Brackets node so you can access it from Brackets or any Browser.
 
-This is necessarily an alternative to [Brackets-Git][Brackets Git], you can use both in parallel without conflicts.
+This is not necessarily an alternative to [Brackets-Git][Brackets Git], you can use both in parallel without conflicts.
 In fact, I have both installed and use either, depending on the task and context.
 
 ## Dependencies

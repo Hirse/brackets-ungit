@@ -4,7 +4,7 @@ define(function (require, exports, module) {
     /* beautify preserve:start */
     var Dialogs         = brackets.getModule("widgets/Dialogs");
 
-    var Strings             = require("strings");
+    var Strings         = require("strings");
     /* beautify preserve:end */
 
     var Dialog;
