@@ -1,11 +1,11 @@
 define(function (require, exports, module) {
     "use strict";
 
-    /* beautify preserve:start */
+    /* beautify preserve:start *//* eslint-disable no-multi-spaces */
     var Dialogs         = brackets.getModule("widgets/Dialogs");
 
     var Strings         = require("strings");
-    /* beautify preserve:end */
+    /* eslint-enable no-multi-spaces *//* beautify preserve:end */
 
     var Dialog;
     var installLog = "";

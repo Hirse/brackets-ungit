@@ -1,1 +1,4 @@
-node_modules
+.vscode/
+coverage/
+node_modules/
+hirse.ungit.zip

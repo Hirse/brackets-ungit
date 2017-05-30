@@ -1,7 +1,9 @@
+/* global Promise:true */
+
 define(function (require, exports, module) {
     "use strict";
 
-    /* beautify preserve:start */
+    /* beautify preserve:start *//* eslint-disable no-multi-spaces */
     var CommandManager  = brackets.getModule("command/CommandManager");
     var Menus           = brackets.getModule("command/Menus");
     var FileSystem      = brackets.getModule("filesystem/FileSystem");
@@ -16,7 +18,7 @@ define(function (require, exports, module) {
     var Strings             = require("strings");
     var ungitViewerTemplate = require("text!templates/ungit.html");
     if (typeof Promise !== "function") {
-        var Promise         = require("src/Promise");
+        Promise         = require("thirdparty/Promise");
     }
 
     var BASE_URL          = "http://localhost:8448/#/repository?path=";
@@ -26,7 +28,7 @@ define(function (require, exports, module) {
     var STATUS_INSTALLED  = 3;
     var STATUS_RUNNING    = 4;
     var STATUS_OPEN       = 5;
-    /* beautify preserve:end */
+    /* eslint-enable no-multi-spaces *//* beautify preserve:end */
 
     var nodeDomain = new NodeDomain("hirseUngit", ExtensionUtils.getModulePath(module, "domain"));
     var npmDomain = new NodeDomain("hirseNpm", ExtensionUtils.getModulePath(module, "npmDomain"));
@@ -82,19 +84,6 @@ define(function (require, exports, module) {
         });
     }
 
-    function killUngit() {
-        if (status === STATUS_OPEN) {
-            closeUngit();
-        }
-        nodeDomain.exec("kill");
-        nodeDomain.on("close", function () {
-            $toolbarButton.removeClass();
-            status = STATUS_INSTALLED;
-            $viewer.find("iframe").attr("src", "");
-            currentPath = "";
-        });
-    }
-
     function openUngit() {
         startUngit().then(function () {
             var projectPath = ProjectManager.getProjectRoot().fullPath;
@@ -111,6 +100,19 @@ define(function (require, exports, module) {
         $viewer.fadeOut("fast");
         status = STATUS_RUNNING;
         CommandManager.execute("brackets-git.refreshAll");
+    }
+
+    function killUngit() {
+        if (status === STATUS_OPEN) {
+            closeUngit();
+        }
+        nodeDomain.exec("kill");
+        nodeDomain.on("close", function () {
+            $toolbarButton.removeClass();
+            status = STATUS_INSTALLED;
+            $viewer.find("iframe").attr("src", "");
+            currentPath = "";
+        });
     }
 
     $viewer = $(Mustache.render(ungitViewerTemplate, {
@@ -144,10 +146,10 @@ define(function (require, exports, module) {
             } else if (status === STATUS_INSTALLING) {
                 Dialog.openInstallDialog();
             } else if (status >= STATUS_INSTALLED) {
-                if (status !== STATUS_OPEN) {
-                    openUngit();
-                } else {
+                if (status === STATUS_OPEN) {
                     closeUngit();
+                } else {
+                    openUngit();
                 }
             }
         })
@@ -156,12 +158,12 @@ define(function (require, exports, module) {
     AppInit.appReady(function () {
         var nodeModules = FileSystem.getDirectoryForPath(ExtensionUtils.getModulePath(module, "node_modules"));
         nodeModules.exists(function (error, exists) {
-            if (!exists) {
-                installUngit();
-            } else {
+            if (exists) {
                 $toolbarButton.removeClass();
                 $toolbarButton.attr("title", Strings.TOOLBAR_ICON_TOOLTIP);
                 status = STATUS_INSTALLED;
+            } else {
+                installUngit();
             }
         });
     });

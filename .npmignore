@@ -1,3 +1,11 @@
+.github/
+.vscode/
+coverage/
+screenshots/
+.brackets.json
+.eslintignore
+.eslintrc.yml
 .gitignore
-.jscsrc
-.jshintrc
+.travis.yml
+Gruntfile.js
+hirse.ungit.zip
