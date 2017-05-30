@@ -10,6 +10,7 @@ define(function (require, exports, module) {
     var ExtensionUtils  = brackets.getModule("utils/ExtensionUtils");
     var NodeDomain      = brackets.getModule("utils/NodeDomain");
     var MainViewManager = brackets.getModule("view/MainViewManager");
+    var Mustache        = brackets.getModule("thirdparty/mustache/mustache");
 
     var Dialog              = require("src/Dialog");
     var Strings             = require("strings");
