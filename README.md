@@ -1,3 +1,8 @@
+[![npm](https://img.shields.io/npm/v/hirse.ungit.svg)](https://www.npmjs.com/package/hirse.ungit)
+[![Build Status](https://travis-ci.org/Hirse/brackets-ungit.svg?branch=master)](https://travis-ci.org/Hirse/brackets-ungit)
+
+<a href="http://brackets.io/"><img src="https://raw.githubusercontent.com/Hirse/brackets-ungit/master/images/brackets.png" alt="Brackets" align="left" /></a>
+
 # Brackets Ungit
 [Brackets][Brackets] Extension that adds [Ungit][Ungit] directly into Brackets.  
 Runs Ungit as a child process of the Brackets node so you can access it from Brackets or any Browser.
@@ -43,8 +48,8 @@ Brackets Ungit is licensed under the [MIT license][MIT]. [Ungit][Ungit] itself i
 [Brackets Extension Registry]: https://brackets-registry.aboutweb.com
 [Brackets Git]: https://github.com/zaggino/brackets-git
 [Brackets npm Registry]: https://github.com/zaggino/brackets-npm-registry
-[Brackets Ungit Viewer Screenshot]: https://raw.githubusercontent.com/Hirse/brackets-ungit/master/screenshots/viewer.png
-[Brackets Ungit Install Screenshot]: https://raw.githubusercontent.com/Hirse/brackets-ungit/master/screenshots/install.png
+[Brackets Ungit Viewer Screenshot]: https://raw.githubusercontent.com/Hirse/brackets-ungit/master/images/viewer.png
+[Brackets Ungit Install Screenshot]: https://raw.githubusercontent.com/Hirse/brackets-ungit/master/images/install.png
 [Git]: https://git-scm.com
 [MIT]: http://opensource.org/licenses/MIT
 [Ungit]: https://github.com/FredrikNoren/ungit
