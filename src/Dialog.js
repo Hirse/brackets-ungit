@@ -28,7 +28,7 @@ define(function (require, exports, module) {
         }
         var dialogBody = Strings.INSTALL_DIALOG_FINISHED_CONTENT;
         dialogBody += "<pre>" + installLog + "</pre>";
-        Dialogs.showModalDialog("hirse-ungit-finished", Strings.INSTALl_DIALOG_FINISHED_TITLE, dialogBody, [{
+        Dialogs.showModalDialog("hirse-ungit-finished", Strings.INSTALL_DIALOG_FINISHED_TITLE, dialogBody, [{
             className: Dialogs.DIALOG_BTN_CLASS_PRIMARY,
             id: Dialogs.DIALOG_BTN_OK,
             text: Strings.INSTALL_DIALOG_BUTTON_OK
@@ -41,7 +41,7 @@ define(function (require, exports, module) {
         }
         var dialogBody = Strings.INSTALL_DIALOG_ERROR_CONTENT;
         dialogBody += "<pre>" + installLog + "</pre>";
-        Dialogs.showModalDialog("hirse-ungit-error", Strings.INSTALl_DIALOG_ERROR_TITLE, dialogBody, [{
+        Dialogs.showModalDialog("hirse-ungit-error", Strings.INSTALL_DIALOG_ERROR_TITLE, dialogBody, [{
             className: Dialogs.DIALOG_BTN_CLASS_PRIMARY,
             id: "close",
             text: Strings.INSTALL_DIALOG_BUTTON_CLOSE
