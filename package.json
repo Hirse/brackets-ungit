@@ -31,10 +31,13 @@
     "ungit": "^1.1.19"
   },
   "devDependencies": {
-    "eslint": "3.x.x"
+    "eslint": "3.x.x",
+    "grunt": "1.x.x",
+    "grunt-contrib-compress": "1.x.x"
   },
   "scripts": {
-      "lint": "eslint .",
-      "test": "npm run lint"
+    "lint": "eslint .",
+    "test": "npm run lint",
+    "bundle": "grunt"
   }
 }
