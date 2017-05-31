@@ -4,6 +4,8 @@
 <a href="http://brackets.io/"><img src="https://raw.githubusercontent.com/Hirse/brackets-ungit/master/images/brackets.png" alt="Brackets" align="left" /></a>
 
 # Brackets Ungit
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Hirse/brackets-ungit.svg)](https://greenkeeper.io/)
 [Brackets][Brackets] Extension that adds [Ungit][Ungit] directly into Brackets.  
 Runs Ungit as a child process of the Brackets node so you can access it from Brackets or any Browser.
 
