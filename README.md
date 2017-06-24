@@ -1,5 +1,6 @@
 [![npm](https://img.shields.io/npm/v/hirse.ungit.svg)](https://www.npmjs.com/package/hirse.ungit)
 [![Build Status](https://travis-ci.org/Hirse/brackets-ungit.svg?branch=master)](https://travis-ci.org/Hirse/brackets-ungit)
+[![Greenkeeper badge](https://badges.greenkeeper.io/Hirse/brackets-ungit.svg)](https://greenkeeper.io/)
 
 <a href="http://brackets.io/"><img src="https://raw.githubusercontent.com/Hirse/brackets-ungit/master/images/brackets.png" alt="Brackets" align="left" /></a>
 
