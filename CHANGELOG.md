@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
+## 0.4.1 - 2017-07-07
+### Changed
+- Updated Ungit to 1.1.22
+
+
 ## 0.4.0 - 2017-05-30
 ### Changed
 - Updated Ungit to `^1.1.19` (see [#6](https://github.com/Hirse/brackets-ungit/issues/6)) and [#9](https://github.com/Hirse/brackets-ungit/issues/9)), thanks to [__@yukoff__](https://github.com/yukoff)
