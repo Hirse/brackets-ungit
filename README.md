@@ -41,7 +41,7 @@ The latest _release_ of this extension is also available on the [Brackets npm Re
 Click the Ungit Toolbar Button to start Ungit and open the viewer for the current project. Ungit will keep running until Brackets is closed. Go to `http://localhost:8448` to view the same Ungit instance in your Browser of choice.
 
 ## License
-Brackets Ungit is licensed under the [MIT license][MIT]. [Ungit][Ungit] itself is also licensed under the MIT license.
+Brackets Ungit is licensed under the [MIT license][MIT]. [Ungit][Ungit] itself is licensed under [LYC](LYC).
 
 
 [Brackets]: http://brackets.io
@@ -52,5 +52,6 @@ Brackets Ungit is licensed under the [MIT license][MIT]. [Ungit][Ungit] itself i
 [Brackets Ungit Viewer Screenshot]: https://raw.githubusercontent.com/Hirse/brackets-ungit/master/images/viewer.png
 [Brackets Ungit Install Screenshot]: https://raw.githubusercontent.com/Hirse/brackets-ungit/master/images/install.png
 [Git]: https://git-scm.com
-[MIT]: http://opensource.org/licenses/MIT
+[LYC]: https://licenseyourcode.com/product/ungit
+[MIT]: https://opensource.org/licenses/MIT
 [Ungit]: https://github.com/FredrikNoren/ungit
