@@ -11,7 +11,8 @@ var _domainManager;
 var child;
 
 function start() {
-    child = childProcess.fork("node_modules/ungit/bin/ungit", ["--no-b", "--maxNAutoRestartOnCrash=0"], {
+    var args = ["--no-b", "--maxNAutoRestartOnCrash=0", "--ungitVersionCheckOverride"];
+    child = childProcess.fork("node_modules/ungit/bin/ungit", args, {
         cwd: __dirname,
         silent: true
     });

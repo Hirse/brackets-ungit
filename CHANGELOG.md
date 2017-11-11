@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
+## 0.5.0 - 2017-11-11
+### Changed
+- Updated Ungit to 1.2.3
+- Updated Brackets required version to 1.11.0
+- Supress ungit version check
+
+
 ## 0.4.2 - 2017-10-23
 ### Changed
 - Updated Ungit to 1.1.33
