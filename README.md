@@ -1,4 +1,6 @@
 [![npm](https://img.shields.io/npm/v/hirse.ungit.svg)](https://www.npmjs.com/package/hirse.ungit)
+[![Downloads](https://badges.ml/hirse.ungit/total.svg)](https://brackets-extension-badges.github.io#hirse.ungit)
+
 [![Build Status](https://travis-ci.org/Hirse/brackets-ungit.svg?branch=master)](https://travis-ci.org/Hirse/brackets-ungit)
 [![Greenkeeper badge](https://badges.greenkeeper.io/Hirse/brackets-ungit.svg)](https://greenkeeper.io/)
 
@@ -41,7 +43,8 @@ The latest _release_ of this extension is also available on the [Brackets npm Re
 Click the Ungit Toolbar Button to start Ungit and open the viewer for the current project. Ungit will keep running until Brackets is closed. Go to `http://localhost:8448` to view the same Ungit instance in your Browser of choice.
 
 ## License
-Brackets Ungit is licensed under the [MIT license][MIT]. [Ungit][Ungit] itself is licensed under [LYC](LYC).
+Brackets Ungit is licensed under the [MIT license][MIT].  
+[Ungit][Ungit] itself is licensed as [Faircode](Faircode).
 
 
 [Brackets]: http://brackets.io
@@ -51,7 +54,7 @@ Brackets Ungit is licensed under the [MIT license][MIT]. [Ungit][Ungit] itself i
 [Brackets npm Registry]: https://github.com/zaggino/brackets-npm-registry
 [Brackets Ungit Viewer Screenshot]: https://raw.githubusercontent.com/Hirse/brackets-ungit/master/images/viewer.png
 [Brackets Ungit Install Screenshot]: https://raw.githubusercontent.com/Hirse/brackets-ungit/master/images/install.png
+[Faircode]: https://faircode.io/product/Ungit
 [Git]: https://git-scm.com
-[LYC]: https://licenseyourcode.com/product/ungit
 [MIT]: https://opensource.org/licenses/MIT
 [Ungit]: https://github.com/FredrikNoren/ungit
