@@ -1,5 +1,6 @@
-[![npm](https://img.shields.io/npm/v/hirse.ungit.svg)](https://www.npmjs.com/package/hirse.ungit)
-[![Downloads](https://badges.ml/hirse.ungit/total.svg)](https://brackets-extension-badges.github.io#hirse.ungit)
+[![npm Version](https://img.shields.io/npm/v/hirse.ungit.svg)](https://www.npmjs.com/package/hirse.ungit)
+[![Brackets Extension Registry Version](https://badges.ml/hirse.ungit/version.svg)](https://brackets-extension-badges.github.io#hirse.ungit)
+[![Brackets Extension Registry Downloads](https://badges.ml/hirse.ungit/total.svg)](https://brackets-extension-badges.github.io#hirse.ungit)
 
 [![Build Status](https://travis-ci.org/Hirse/brackets-ungit.svg?branch=master)](https://travis-ci.org/Hirse/brackets-ungit)
 [![Greenkeeper badge](https://badges.greenkeeper.io/Hirse/brackets-ungit.svg)](https://greenkeeper.io/)
@@ -49,7 +50,7 @@ Brackets Ungit is licensed under the [MIT license][MIT].
 
 [Brackets]: http://brackets.io
 [Brackets Extension Manager]: https://github.com/adobe/brackets/wiki/Brackets-Extensions
-[Brackets Extension Registry]: https://brackets-registry.aboutweb.com
+[Brackets Extension Registry]: https://registry.brackets.io
 [Brackets Git]: https://github.com/zaggino/brackets-git
 [Brackets npm Registry]: https://github.com/zaggino/brackets-npm-registry
 [Brackets Ungit Viewer Screenshot]: https://raw.githubusercontent.com/Hirse/brackets-ungit/master/images/viewer.png
