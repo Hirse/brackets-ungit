@@ -45,7 +45,7 @@ Click the Ungit Toolbar Button to start Ungit and open the viewer for the curren
 
 ## License
 Brackets Ungit is licensed under the [MIT license][MIT].  
-[Ungit][Ungit] itself is licensed as [Faircode](Faircode).
+[Ungit][Ungit] itself is also licensed under the [MIT license][MIT] (again).
 
 
 [Brackets]: http://brackets.io
@@ -55,7 +55,6 @@ Brackets Ungit is licensed under the [MIT license][MIT].
 [Brackets npm Registry]: https://github.com/zaggino/brackets-npm-registry
 [Brackets Ungit Viewer Screenshot]: https://raw.githubusercontent.com/Hirse/brackets-ungit/master/images/viewer.png
 [Brackets Ungit Install Screenshot]: https://raw.githubusercontent.com/Hirse/brackets-ungit/master/images/install.png
-[Faircode]: https://faircode.io/product/Ungit
 [Git]: https://git-scm.com
 [MIT]: https://opensource.org/licenses/MIT
 [Ungit]: https://github.com/FredrikNoren/ungit
