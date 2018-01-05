@@ -28,7 +28,7 @@
     }
   },
   "dependencies": {
-    "ungit": "1.4.1"
+    "ungit": "1.4.2"
   },
   "devDependencies": {
     "eslint": "4.x.x",
