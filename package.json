@@ -1,6 +1,6 @@
 {
   "name": "hirse.ungit",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "title": "Brackets Ungit",
   "description": "Run and view Ungit in Brackets. Ungit is a \"Clean and intuitive UI that makes it easy to understand git.\" Requires Git and npm to be installed, works together with Brackets-Git.",
   "engines": {
@@ -28,7 +28,7 @@
     }
   },
   "dependencies": {
-    "ungit": "1.4.9"
+    "ungit": "1.4.22"
   },
   "devDependencies": {
     "eslint": "4.x.x",
