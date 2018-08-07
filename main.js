@@ -74,7 +74,10 @@ define(function (require, exports, module) {
                 reject();
             });
             nodeDomain.on("out", function (event, message) {
-                if (message.indexOf("## Ungit started ##") !== -1 || message.indexOf("Ungit server already running") !== -1) {
+                var started = message.indexOf("## Ungit started ##") !== -1 ||
+                message.indexOf("Ungit server already running") !== -1 ||
+                message.indexOf("Error: listen EADDRINUSE 127.0.0.1:8448") !== -1;
+                if (started) {
                     $toolbarButton.removeClass();
                     $toolbarButton.addClass("enabled");
                     status = STATUS_RUNNING;

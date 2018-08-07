@@ -28,11 +28,11 @@
     }
   },
   "dependencies": {
-    "ungit": "1.4.22"
+    "ungit": "1.4.31"
   },
   "devDependencies": {
-    "eslint": "4.x.x",
-    "grunt": "1.x.x",
+    "eslint": "5.3.x",
+    "grunt": "1.0.x",
     "grunt-contrib-compress": "1.x.x"
   },
   "scripts": {
