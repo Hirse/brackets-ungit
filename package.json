@@ -31,7 +31,7 @@
     "ungit": "1.4.42"
   },
   "devDependencies": {
-    "eslint": "5.14.x",
+    "eslint": "~5.15.0",
     "grunt": "1.0.x",
     "grunt-contrib-compress": "1.x.x"
   },
