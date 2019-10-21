@@ -33,7 +33,7 @@
   "devDependencies": {
     "eslint": "6.5.x",
     "grunt": "1.0.x",
-    "grunt-contrib-compress": "1.5.x"
+    "grunt-contrib-compress": "~1.6.0"
   },
   "scripts": {
     "lint": "eslint .",
