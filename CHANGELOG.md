@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 
+## 0.8.3 - 2020-09-06
+### Changed
+- Updated Ungit to 1.5.10
+
+
 ## 0.8.2 - 2020-04-21
 ### Changed
 - Updated Ungit to 1.5.6

@@ -9,3 +9,4 @@ images/
 .travis.yml
 Gruntfile.js
 hirse.ungit.zip
+hirse.ungit-*.zip
